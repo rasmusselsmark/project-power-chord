@@ -1,3 +1,3 @@
-# project-power-cords
+# project-power-chords
 
 Run using "npx nodemon"
