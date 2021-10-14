@@ -1,1 +1,1 @@
-# project-power-cords
+# project-power-chords
