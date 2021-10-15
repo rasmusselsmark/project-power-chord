@@ -58,15 +58,12 @@
 									<div id="id01"></div>
 
 									<script>
-										alert("Code is running.")
 										var xmlhttp = new XMLHttpRequest(); 
 										var url = "/list";
 										xmlhttp.onreadystatechange = function() {
 											if (this.readyState == 4 && this.status == 200) {
-												alert("State change alert.")
 												var myArr = JSON.parse(this.responseText);
 												console.log("State changed")
-											console.log(myArr)
 											myFunction(myArr);
 										}
 										};
@@ -77,7 +74,7 @@
 											var out = "";
 											var i;
 										for(i = 0; i < arr.length; i++) {
-												out += '<h5>' + arr[i].name + '</h5><br>';
+												out += '<h5>' + arr[i].name.split('.')[0] + '</h5><br>';
 												out += '<audio controls><source src="' + arr[i].path + '" type="audio/ogg"></audio><br>';
 										}
 										console.log(out)
