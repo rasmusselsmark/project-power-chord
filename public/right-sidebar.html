@@ -25,6 +25,7 @@
 								<a href="#">Music</a>
 								<ul>
 									<li><a href="right-sidebar.html">Listen to Music</a></li>
+									<li><a href="upload-music.html">Upload Music</a></li>
 									<li>
 										<ul>
 											<li><a href="#">Option 1</a></li>
@@ -56,65 +57,38 @@
 										<p> Upload and listen to independent music right here, help yourself with the possiblity of launching your career to new heights you never before thought imagenable. </p>
 										<h3>It's forbidden to upload pirated music</h3>
 										<p>It's illegal, we don't condone it and will take down pirated music so we don't get sued and or taken down </p>
-										<ul>
-											<li> 
-												<h5>Zodiac_Track - Unite</h5>
-												<audio controls>
-												<source src="assets/Audio/Unite.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Breakdown Remix</h5>
-												<audio controls>
-												<source src="assets/Audio/Breakdown remix.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Attack</h5>
-												<audio controls>
-												<source src="assets/Audio/Attack.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Horror</h5>
-												<audio controls>
-												<source src="assets/Audio/Horror.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Demonic</h5>
-												<audio controls>
-												<source src="assets/Audio/Demonic.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Movement</h5>
-												<audio controls>
-												<source src="assets/Audio/Movement.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Recovering</h5>
-												<audio controls>
-												<source src="assets/Audio/Recovering.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-											<li> 
-												<h5>Zodiac_Track - Polution</h5>
-												<audio controls>
-												<source src="assets/Audio/Polution.wav" type="audio/ogg">
-											  Your browser does not support the audio element.
-											  </audio> 
-											</li>
-										</ul>
 									</section>
+
+									<div id="id01"></div>
+
+									<script>
+										alert("Code is running.")
+										var xmlhttp = new XMLHttpRequest(); 
+										var url = "/list";
+										xmlhttp.onreadystatechange = function() {
+											if (this.readyState == 4 && this.status == 200) {
+												alert("State change alert.")
+												var myArr = JSON.parse(this.responseText);
+												console.log("State changed")
+											console.log(myArr)
+											myFunction(myArr);
+										}
+										};
+										xmlhttp.open("GET", url, true);
+										xmlhttp.send();
+										function myFunction(arr) {
+											console.log(arr)
+											var out = "";
+											var i;
+										for(i = 0; i < arr.length; i++) {
+												out += '<h5>' + arr[i].name + '</h5><br>';
+												out += '<audio controls><source src="' + arr[i].path + '" type="audio/ogg"></audio><br>';
+										}
+										console.log(out)
+										document.getElementById("id01").innerHTML = out;
+										}
+									  </script>
+
 
 							</div>
 							<div class="col-4 col-12-medium">
