@@ -18,6 +18,7 @@ router.get('/', function(req, res) {
 
       tracks.push(trackData)
     });
+    return tracks;
   })
 });
 
