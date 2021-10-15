@@ -2,22 +2,29 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
+let tracks;
+let trackData;
+
+
 router.get('/', function(req, res) {
-  fs.readdir('routes/Audio', function (err, files) {
+  fs.readdir('public/assets/Audio', function (err, files) {
     if (err) {
       console.log(err)
       return
     }
 
+    tracks = []
+
     files.forEach(function (file) {
-      let tracks = []
-      let trackData = {
+      trackData = {
         name: file,
-        path: 'routes/Audio/' + file
+        path: 'assets/Audio/' + file
       }
 
       tracks.push(trackData)
     });
+
+    res.send(tracks)
     return tracks;
   })
 });
