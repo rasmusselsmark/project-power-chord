@@ -7,9 +7,10 @@ router.post("/", function(req, res) {
   }
 
   let uploadedFile = req.files.uploadedFile;
-  let uploadPath = __dirname + '/Audio/' + uploadedFile.name;
+  let uploadPath = __dirname + '/../public/assets/Audio/' + uploadedFile.name;
 
-  if (uploadedFile.name.split('.')[1] != 'wav' || 'mp3') {
+  var ext = uploadedFile.name.split('.')[1]
+  if (!['wav', 'mp3'].includes(ext)) {
     res.send("Invalid file type. Use 'WAV' or 'MP3'.")
     return;
   }
